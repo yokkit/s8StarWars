@@ -1,11 +1,12 @@
 import "./App.css";
-import StarshipMain from "./pages/StarshipMain";
+import Router from "./app/router";
+import React from "react";
 
 function App() {
   return (
-    <div>
-      <StarshipMain />
-    </div>
+    <React.Fragment>
+      <Router />
+    </React.Fragment>
   )
 }
 

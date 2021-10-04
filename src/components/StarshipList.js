@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import StarshipItem from "./StarshipItem";
 import styled from "styled-components";
@@ -12,22 +12,16 @@ export default function StarshipList() {
 
   useEffect(
     () => {
-      getItems();
+      axios
+        .get(`https://swapi.dev/api/starships/?page=1`)
+        .then(res => {
+          setItems([...items, ...res.data.results]);
+        })
+        .catch(error => console.log("error", error));
     },
     // eslint-disable-next-line
     []
   );
-
-  const getItems = async() => {
-    await axios
-      .get(`https://swapi.dev/api/starships/?page=1`)
-      .then((res) => {
-        setItems([...items, ...res.data.results]);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  };
 
   return (
     <StarshipListStyle>

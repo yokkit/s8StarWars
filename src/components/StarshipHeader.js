@@ -17,7 +17,7 @@ export default function StarshipHeader() {
     return (
         <HeaderStyle>
             <LogoArea>
-            <LogoImg src="logoBig.png" alt="logo" />
+            <LogoImg src="/logoBig.png" alt="logo" />
             </LogoArea>
         </HeaderStyle>
     )
