@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import StarshipItem from "./StarshipItem";
 import styled from "styled-components";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const StarshipListStyle = styled.div`
   margin: 0 20% 10%;
@@ -23,18 +24,18 @@ export default function StarshipList() {
     // eslint-disable-next-line
     [page]
   );
-  const changeNextPage = () => {
-    if (page < 4) {
-      setPage(page + 1);
-    }
-  };
 
   return (
     <StarshipListStyle>
-      {items.map((item, index) => (
-        <StarshipItem key={index} item={item} />
-      ))}
-      <button onClick={changeNextPage}>Ver más</button>
+      <InfiniteScroll
+        dataLength={items.length}
+        next={()=> {if (page<4){setPage(page + 1)}}}
+        hasMore={true}
+      >
+        {items.map((item, index) => (
+          <StarshipItem key={index} item={item} />
+        ))}
+      </InfiniteScroll>
     </StarshipListStyle>
   );
 }
