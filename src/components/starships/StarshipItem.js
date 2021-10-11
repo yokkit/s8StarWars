@@ -26,7 +26,7 @@ const StarshipItemStyle = styled.div`
 export default function StarshipItem(props) {
   return (
     <StarshipItemStyle key={props.index}>
-      <Link to={`/starship/${props.item.url.split('/').slice(-2, -1).toString()}/`}>
+      <Link to={`/starships/${props.item.url.split('/').slice(-2, -1).toString()}/`}>
         <h2>{props.item.name}</h2>
         <p>{props.item.model}</p>
       </Link>

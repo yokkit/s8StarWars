@@ -5,7 +5,7 @@ import styled from "styled-components";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const StarshipListStyle = styled.div`
-  margin: 0 20% 10%;
+  margin: auto 15%;
 `;
 
 export default function StarshipList() {

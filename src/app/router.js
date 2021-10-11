@@ -1,16 +1,30 @@
 import React from "react";
-import { BrowserRouter, Route, Switch} from "react-router-dom";
-import StarshipMain from "../pages/StarshipMain";
-import StarshipDetail from "../pages/StarshipDetail";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
+import StarshipContent from "../components/starshipDetail/StarshipContent";
+import StarshipList from "../components/starships/StarshipList";
+import StarshipLayout from "../components/ui/StarshipLayout";
+import styled from "styled-components";
+import Welcome from "../pages/Welcome";
+
+const NotFoundStyle= styled.div`
+  text-align: center;
+  margin: 25% 10%;
+`;
 
 export default function router() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={StarshipMain} />
-        <Route exact path="/starship/:id" component={StarshipDetail} />
-        <Route path="*" component={() => <div>Not found 404</div>} />
-      </Switch>
-    </BrowserRouter>
+    <Router>
+      <StarshipLayout>
+      <ScrollToTop>
+        <Switch>
+          <Route exact path="/" component={Welcome} />
+          <Route exact path="/starships" component={StarshipList} />
+          <Route exact path="/starships/:id" component={StarshipContent} />
+          <Route path="*" component={() => <NotFoundStyle>Not found 404</NotFoundStyle>} />
+        </Switch>
+      </ScrollToTop>
+      </StarshipLayout>
+    </Router>
   );
 }
