@@ -58,7 +58,7 @@ const ShipDataitemsStyle = styled.div`
   margin: 5% 0;
   margin-left: 5px;
   padding: 1% 2%;
-  width: 220px;
+  width: 215px;
   &:nth-child(4n) {
     border-right: none;
   }
@@ -87,6 +87,9 @@ const ShipDataitemsStyle = styled.div`
     border-top: #333 1px solid;
     &:first-child {
       border-top: none;
+    }
+    &:nth-child(3n) {
+      border-right: none;
     }
   }
 `;
