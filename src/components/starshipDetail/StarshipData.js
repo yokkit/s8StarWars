@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 const StarshipDataStyle = styled.div`
   margin: 5% 10%;
+  @media (min-width:1660px) {
+    margin: 5% 15%;
+  }
 `;
 const StarshipMainStyle = styled.div`
   display: flex;
@@ -11,7 +14,6 @@ const StarshipMainStyle = styled.div`
   border-radius: 10px;
   @media (max-width: 992px) {
     margin: 5%;
-    min-width: 350px;
     flex-direction: column;
   }
 `;
@@ -43,14 +45,17 @@ const ShipDescriptionStyle = styled.div`
 `;
 
 const StarshipFiguresStyle = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  @media (max-width: 1324px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
   @media (max-width: 992px) {
     margin: 0 3%;
+    grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 768px) {
-    flex-direction: column;
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 const ShipDataitemsStyle = styled.div`
@@ -82,7 +87,7 @@ const ShipDataitemsStyle = styled.div`
     }
   }
   @media (max-width: 768px) {
-    width: 100%;
+    width: 95%;
     border-right: none;
     border-top: #333 1px solid;
     &:first-child {

@@ -20,6 +20,9 @@ const LinksWrapper = styled.ul`
   position: fixed;
   top: 65px;
   left: 0;
+  @media (max-width: 430px) {
+    width: 80%;
+  }
 `;
 
 export default function BurgerMenu(props) {

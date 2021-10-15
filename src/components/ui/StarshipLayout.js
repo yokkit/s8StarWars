@@ -5,6 +5,13 @@ import StarshipFooter from "./StarshipFooter";
 import StarshipHeader from "./StarshipHeader";
 import StarshipMobileHeader from "./StarshipMobileHeader";
 
+const TotalStyle = styled.div`
+  background: url("/imgs/backgroundStar.png");
+  color: #ddd;
+  h1 {
+    color: #ddd;
+  }
+`;
 const DeviceSize = {
   mobile: 768,
   tablet: 992,
@@ -14,18 +21,21 @@ const DeviceSize = {
 
 const MainContents = styled.div`
   min-height: 65vh;
+  margin: 5% 10%;
+  /* max-width: 1324px; */
+  @media (min-width: 1660px) {
+    margin: 5% 15%;
+  }
 `;
 
 export default function StarshipLayout(props) {
   const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
   return (
-    <React.Fragment>
+    <TotalStyle>
       {!isMobile && <StarshipHeader />}
       {isMobile && <StarshipMobileHeader />}
-      <MainContents>
-        {props.children}
-      </MainContents>
+      <MainContents>{props.children}</MainContents>
       <StarshipFooter />
-    </React.Fragment>
+    </TotalStyle>
   );
 }
