@@ -5,7 +5,7 @@ import StarshipContent from "../components/starshipDetail/StarshipContent";
 import StarshipList from "../components/starships/StarshipList";
 import StarshipLayout from "../components/ui/StarshipLayout";
 import styled from "styled-components";
-import Welcome from "../components/Welcome/Welcome";
+import Welcome from "../components/welcome/Welcome";
 
 const NotFoundStyle= styled.div`
   text-align: center;
