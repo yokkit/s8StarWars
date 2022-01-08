@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import HeaderLogin from "./HeaderLogin";
 
 const HeaderStyle = styled.header`
   text-align: center;
@@ -20,6 +21,17 @@ const HeaderStyle = styled.header`
   }
 `;
 
+export const LinkStyle = styled.div`
+  color: grey;
+  text-decoration: none;
+  width: 100%;
+  &:hover {
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+`;
+
 const LogoArea = styled.div`
   margin: 1rem;
   grid-column: 1 / 5;
@@ -29,7 +41,7 @@ const LogoArea = styled.div`
   }
 `;
 
-const RegisterStyle = styled.div`
+const SpecialStyle = styled.div`
   grid-column: 4 / 5;
   grid-row: 2;
   display: flex;
@@ -59,20 +71,17 @@ const StarshipNavbarStyled = styled.nav`
   }
 `;
 
-export default function StarshipHeader() {
+export default function StarshipHeader(props) {
+  
   return (
     <HeaderStyle>
       <LogoArea>
-          <img src="/logoBig.png" alt="logo" />
+        <img src="/logoBig.png" alt="logo" />
       </LogoArea>
-      <RegisterStyle>
-        <div>
-          <NavLink to="#">Log In</NavLink>
-        </div>
-        <div>
-          <NavLink to="#">Sign Up</NavLink>
-        </div>
-      </RegisterStyle>
+      <SpecialStyle>
+      <HeaderLogin handleOpen={props.handleOpen} handleOpenRegister={props.handleOpenRegister}
+      />
+      </SpecialStyle>
       <StarshipNavbarStyled>
         <div>
           <NavLink to="/">HOME</NavLink>

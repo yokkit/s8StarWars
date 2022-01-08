@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import BurgerMenu from "./BurgerMenu";
+import HeaderLogin from "./HeaderLogin";
 
 const HeaderStyle = styled.header`
   text-align: center;
@@ -49,19 +50,17 @@ const StarshipNavbarStyled = styled.nav`
   }
 `;
 
-export default function StarshipHeader() {
+export default function StarshipHeader(props) {
   return (
     <React.Fragment>
       <HeaderStyle>
         <BurgerMenuStyle>
           <BurgerMenu>
             <RegisterStyle>
-              <div>
-                <NavLink to="#">Log In</NavLink>
-              </div>
-              <div>
-                <NavLink to="#">Sign Up</NavLink>
-              </div>
+              <HeaderLogin
+                handleOpen={props.handleOpen}
+                handleOpenRegister={props.handleOpenRegister}
+              />
             </RegisterStyle>
             <StarshipNavbarStyled>
               <div>
