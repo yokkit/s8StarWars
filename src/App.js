@@ -1,12 +1,14 @@
 import "./App.css";
-import StarshipMain from "./pages/StarshipMain";
+import Router from "./app/router";
+import React from "react";
+import Provider from "./app/provider";
 
 function App() {
   return (
-    <div>
-      <StarshipMain />
-    </div>
-  )
+    <Provider>
+      <Router />
+    </Provider>
+  );
 }
 
 export default App;
